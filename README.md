@@ -3,7 +3,9 @@ Theme Bundle
 
 This bundle provides you the possibility to add themes to each bundle. In your
 bundle directory it will look under `Resources/themes/<themename>` or fall back
-to the normal Resources/views if no matching file was found. this project modified to cahce the amazon cloudfront request and change the auto detect device to current user-Agent
+to the normal Resources/views if no matching file was found. This project modified 
+to catch the amazon cloudfront request and change the auto detect device to current 
+user-Agent
 
 [![Build Status](https://secure.travis-ci.org/liip/LiipThemeBundle.png)](http://travis-ci.org/liip/LiipThemeBundle)
 

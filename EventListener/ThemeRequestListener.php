@@ -95,11 +95,10 @@ class ThemeRequestListener
      * @return string the user agent type
      */
     private function getThemeType(Request $request)
-{
-        
-$mobileCacheHeader = $request->server->get('HTTP_CLOUDFRONT_IS_MOBILE_VIEWER');
-$tabletCacheHeader = $request->server->get('HTTP_CLOUDFRONT_IS_TABLET_VIEWER');
-$desktopCacheHeader = $request->server->get('HTTP_CLOUDFRONT_IS_DESKTOP_VIEWER');
+    {
+        $mobileCacheHeader = $request->server->get('HTTP_CLOUDFRONT_IS_MOBILE_VIEWER');
+        $tabletCacheHeader = $request->server->get('HTTP_CLOUDFRONT_IS_TABLET_VIEWER');
+        $desktopCacheHeader = $request->server->get('HTTP_CLOUDFRONT_IS_DESKTOP_VIEWER');
 
 if($tabletCacheHeader == 'true'){
                 $this->autoDetect->setUserAgent("Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25"); 
@@ -109,17 +108,16 @@ elseif($mobileCacheHeader == 'true'){
 $this->autoDetect->setUserAgent("Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5"); 
 return $this->autoDetect->getType();
 }
-elseif($desktopCacheHeader=='true'){
+        elseif($desktopCacheHeader=='true') {
 			$this->autoDetect->setUserAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36"); 
-		   return $this->autoDetect->getType();
+		    return $this->autoDetect->getType();
 		}
-else{ 
+        else { 
 	        $userAgent = $request->server->get('HTTP_USER_AGENT');
 	        $this->autoDetect->setUserAgent($userAgent);
-	
 	        return $this->autoDetect->getType();
 	    }
-}
+    }
 
 
     /**
